@@ -1,0 +1,16 @@
+{
+  "name": "account-book",
+  "version": "0.1.0",
+  "main": "src/app.js",
+  "private": true,
+  "scripts": {
+    "test": "eslint .",
+    "start": "tabris serve"
+  },
+  "dependencies": {
+    "tabris": "^2.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.10.0"
+  }
+}
