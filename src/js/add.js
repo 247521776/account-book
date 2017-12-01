@@ -155,7 +155,7 @@ module.exports = (navigationView) => {
             AIRPORTS = [];
             for (let i = 0; i < length; i++) {
                 AIRPORTS.push({
-                    id: source[i].id,
+                    id: source[i].type,
                     name: source[i].name
                 });
             }
