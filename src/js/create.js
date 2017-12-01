@@ -101,7 +101,7 @@ module.exports = (navigationView) => {
                 const alert = alertView('注册成功', {});
                 setTimeout(() => {
                   alert.close();
-                  navigationView.pages().dispose();
+                  page.dispose();
                 }, 1000);
               }
             })
