@@ -4,7 +4,7 @@ const utils      = require('../utils');
 const url        = `http://${config.localhost}/api/pay_type`;
 const addBook    = `http://${config.localhost}/api/account_book`;
 
-module.exports = (navigationView) => {
+module.exports = (navigationView, ListUrl, listGet) => {
     const token  = localStorage.token;
     let AIRPORTS = [];
     let _pay_type;
@@ -19,6 +19,9 @@ module.exports = (navigationView) => {
         if (top < 50) {
             navigationView.top = top + 1;            
         }
+    })
+    .on('disappear', () => {
+        listGet(ListUrl);
     })
     // .on('touchEnd', () => {
     //     navigationView.top = 0;

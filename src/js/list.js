@@ -9,17 +9,15 @@ const COL_HEIGHT = 50;
 module.exports = () => {
     let navigationView = new NavigationView({
         left: 0, top: 0, right: 0, bottom: 0, toolbarVisible: false
-    }).appendTo(ui.contentView);
+    })
+    .appendTo(ui.contentView);
 
     const page = new Page({
         title: '记账簿'
     })
     .appendTo(navigationView)
     // 点击新增弹层隐藏
-    .on('tap', event => composite.visible = false)
-    .on('disappear', () => {
-        get(`${url}?username=${username}&year=${year}&month=${month}&limit=${limit}&page=${_page}`);
-    });
+    .on('tap', event => composite.visible = false);
 
     const date = new Date();
     let year     = date.getFullYear();
@@ -62,7 +60,11 @@ module.exports = () => {
     .appendTo(composite)
     .on('select', () => {
         composite.set('visible', false);
-        add(navigationView);
+        add(
+            navigationView,
+            `${url}?username=${username}&year=${year}&month=${month}&limit=${limit}&page=${_page}`,
+            get
+        );
     });
 
     // 搜索按钮
